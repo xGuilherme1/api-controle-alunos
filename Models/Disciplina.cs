@@ -7,6 +7,7 @@ namespace ApiControleAlunos.Models
     public class Disciplina
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id_dis")]
         public int Id { get; set; }
 

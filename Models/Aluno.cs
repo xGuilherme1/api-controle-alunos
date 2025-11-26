@@ -7,6 +7,7 @@ namespace ApiControleAlunos.Models
     public class Aluno
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id_alu")]
         public int Id { get; set; }
 
@@ -31,5 +32,7 @@ namespace ApiControleAlunos.Models
         [Column("id_endereco_fk")]
         public int EnderecoId { get; set; }
         public Endereco Endereco { get; set; }
+
+        public ICollection<AlunoDisciplina> AlunoDisciplinas { get; set; } = new List<AlunoDisciplina>();
     }
 }

@@ -7,6 +7,7 @@ namespace ApiControleAlunos.Models
     public class Turma
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id_tur")]
         public int Id { get; set; }
 

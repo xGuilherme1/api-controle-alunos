@@ -7,6 +7,7 @@ namespace ApiControleAlunos.Models
     public class Curso
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id_cur")]
         public int Id { get; set; }
 

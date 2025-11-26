@@ -7,6 +7,7 @@ namespace ApiControleAlunos.Models
     public class Endereco
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("id_end")]
         public int Id { get; set; }
 
