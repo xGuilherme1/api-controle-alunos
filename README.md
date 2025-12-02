@@ -100,10 +100,6 @@ Curl simples para listar alunos:
 - Validações básicas são feitas via DTOs e ModelState nos controllers.
 - Ao criar/atualizar um aluno, o código verifica a existência de curso, turma, endereço e disciplinas e retorna `404` caso algo esteja faltando.
 
-## Contribuição
-
-Pull requests são bem-vindos. Abra uma issue antes de grandes mudanças para discutirmos a proposta.
-
 ## Licença
 
-Projeto de exemplo — sem licença específica.
+Projeto de exemplo — usa licença do MIT.
