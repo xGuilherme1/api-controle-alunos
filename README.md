@@ -1,10 +1,10 @@
 # api-controle-alunos
 
-API para Controle de Alunos — Desenvolvida em C# com .NET 8
+API para Controle de Alunos â€” Desenvolvida em C# com .NET 8
 
-## Descrição
+## DescriÃ§Ã£o
 
-Projeto de exemplo que expõe uma API REST para gerenciar alunos, endereços e suas relações com cursos, turmas e disciplinas. A API usa Entity Framework Core para persistência e segue uma arquitetura simples com Controllers, Models e DTOs.
+Projeto de Trabalho acadÃªmico de uma API REST para gerenciar alunos, endereÃ§os e suas relaÃ§Ãµes com cursos, turmas e disciplinas. A API usa Entity Framework Core para persistÃªncia e segue uma arquitetura simples com Controllers, Models e DTOs.
 
 ## Tecnologias
 
@@ -15,30 +15,30 @@ Projeto de exemplo que expõe uma API REST para gerenciar alunos, endereços e sua
 
 ## Estrutura principal (exemplos de arquivos)
 
-- `Controllers/AlunoController.cs` — endpoints para gerenciar alunos e relacionamentos (curso, turma, endereço, disciplinas).
-- `Controllers/EnderecoController.cs` — endpoints para gerenciar endereços.
-- `Models/` — entidades como `Aluno`, `Endereco`, `Curso`, `Turma`, `Disciplina`, `AlunoDisciplina`.
-- `Models/Dtos/` — DTOs usados para entrada/saída nas APIs.
-- `Program.cs` — configuração da aplicação e do DbContext.
+- `Controllers/AlunoController.cs` â€” endpoints para gerenciar alunos e relacionamentos (curso, turma, endereÃ§o, disciplinas).
+- `Controllers/EnderecoController.cs` â€” endpoints para gerenciar endereÃ§os.
+- `Models/` â€” entidades como `Aluno`, `Endereco`, `Curso`, `Turma`, `Disciplina`, `AlunoDisciplina`.
+- `Models/Dtos/` â€” DTOs usados para entrada/saÃ­da nas APIs.
+- `Program.cs` â€” configuraÃ§Ã£o da aplicaÃ§Ã£o e do DbContext.
 
 ## Modelos e relacionamento (resumo)
 
 - `Aluno` possui relacionamentos N:1 com `Curso`, `Turma` e `Endereco`.
-- `Aluno` tem coleção `AlunoDisciplinas` que representa a relação com `Disciplina` (N:N com payload — `Nota`).
+- `Aluno` tem coleÃ§Ã£o `AlunoDisciplinas` que representa a relaÃ§Ã£o com `Disciplina` (N:N com payload â€” `Nota`).
 
 ## Endpoints principais
 
-- `GET /alunos` — lista todos os alunos. Suporta filtros por query string: `search` (nome), `cursoId`, `turmaId`.
-- `GET /alunos/{id}` — obtém um aluno por id.
-- `POST /alunos` — cria um novo aluno (aceita DTO com referências ao curso, turma, endereço e lista de disciplinas com notas).
-- `PUT /alunos/{id}` — atualiza um aluno existente (substitui disciplinas associadas).
-- `DELETE /alunos/{id}` — remove um aluno e suas entradas em `AlunoDisciplina`.
+- `GET /alunos` â€” lista todos os alunos. Suporta filtros por query string: `search` (nome), `cursoId`, `turmaId`.
+- `GET /alunos/{id}` â€” obtÃ©m um aluno por id.
+- `POST /alunos` â€” cria um novo aluno (aceita DTO com referÃªncias ao curso, turma, endereÃ§o e lista de disciplinas com notas).
+- `PUT /alunos/{id}` â€” atualiza um aluno existente (substitui disciplinas associadas).
+- `DELETE /alunos/{id}` â€” remove um aluno e suas entradas em `AlunoDisciplina`.
 
-- `GET /enderecos` — lista endereços (filtro por `cidade`).
-- `GET /enderecos/{id}` — obtém um endereço por id.
-- `POST /enderecos` — cria um endereço.
-- `PUT /enderecos/{id}` — atualiza um endereço.
-- `DELETE /enderecos/{id}` — remove um endereço.
+- `GET /enderecos` â€” lista endereÃ§os (filtro por `cidade`).
+- `GET /enderecos/{id}` â€” obtÃ©m um endereÃ§o por id.
+- `POST /enderecos` â€” cria um endereÃ§o.
+- `PUT /enderecos/{id}` â€” atualiza um endereÃ§o.
+- `DELETE /enderecos/{id}` â€” remove um endereÃ§o.
 
 ## Como executar (local)
 
@@ -49,18 +49,18 @@ Projeto de exemplo que expõe uma API REST para gerenciar alunos, endereços e sua
 
    `dotnet build`
 
-3. Configurar a string de conexão no arquivo `appsettings.json` (ou usar provider em memória para testes).
+3. Configurar a string de conexÃ£o no arquivo `appsettings.json` (ou usar provider em memÃ³ria para testes).
 4. Aplicar migrations (se usar EF Core com migrations):
 
    `dotnet ef database update`
 
-5. Executar a aplicação:
+5. Executar a aplicaÃ§Ã£o:
 
    `dotnet run`
 
-## Exemplos de requisições
+## Exemplos de requisiÃ§Ãµes
 
-Criar endereço (POST /enderecos)
+Criar endereÃ§o (POST /enderecos)
 
 JSON de exemplo:
 
@@ -68,18 +68,18 @@ JSON de exemplo:
 {
   "logradouro": "Rua A",
   "numero": "123",
-  "cidade": "São Paulo",
+  "cidade": "SÃ£o Paulo",
   "estado": "SP"
 }
 ```
 
 Criar aluno (POST /alunos)
 
-JSON de exemplo (presume que `cursoId`, `turmaId` e `enderecoId` já existem):
+JSON de exemplo (presume que `cursoId`, `turmaId` e `enderecoId` jÃ¡ existem):
 
 ```json
 {
-  "nome": "João Silva",
+  "nome": "JoÃ£o Silva",
   "dataNascimento": "2004-05-20",
   "cursoId": 1,
   "turmaId": 1,
@@ -95,11 +95,11 @@ Curl simples para listar alunos:
 
 `curl -s http://localhost:5000/alunos` (ajuste porta conforme configurada)
 
-## Observações
+## ObservaÃ§Ãµes
 
-- Validações básicas são feitas via DTOs e ModelState nos controllers.
-- Ao criar/atualizar um aluno, o código verifica a existência de curso, turma, endereço e disciplinas e retorna `404` caso algo esteja faltando.
+- ValidaÃ§Ãµes bÃ¡sicas sÃ£o feitas via DTOs e ModelState nos controllers.
+- Ao criar/atualizar um aluno, o cÃ³digo verifica a existÃªncia de curso, turma, endereÃ§o e disciplinas e retorna `404` caso algo esteja faltando.
 
-## Licença
+## LicenÃ§a
 
-Projeto de exemplo — usa licença do MIT.
+Projeto de trabalho acadÃªmico â€” usa licenÃ§a do MIT.
